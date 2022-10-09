@@ -127,7 +127,8 @@ Return an array containing all the matches.
 const isCapitalized = (str) => {
   // Solution code here...
   let regex = /[A-Z]\w+/g;
-  return str.match(regex);
+  let retArr = str.match(regex);
+  return retArr ? retArr : [];
 };
 
 /* ------------------------------------------------------------------------------------------------
