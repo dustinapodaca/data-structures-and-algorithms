@@ -181,6 +181,25 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  let win = false;
+  let row1 = board[0];
+  let row2 = board[1];
+  let row3 = board[2];
+  let col1 = [board[0][0], board[1][0], board[2][0]];
+  let col2 = [board[0][1], board[1][1], board[2][1]];
+  let col3 = [board[0][2], board[1][2], board[2][2]];
+  let diag1 = [board[0][0], board[1][1], board[2][2]];
+  let diag2 = [board[0][2], board[1][1], board[2][0]];
+  let all = [row1, row2, row3, col1, col2, col3, diag1, diag2];
+  all.forEach(row => {
+    if (row[0] === row[1] && row[1] === row[2] && row[0] !== '') {
+      win = true;
+    }
+  });
+  return win;
+};
+
+//absolutely had to look for help on this one. Found some resources on stack overflow and MDN that helped me figure out how to do this.
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
