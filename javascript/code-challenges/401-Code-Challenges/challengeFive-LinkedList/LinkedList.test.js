@@ -2,7 +2,7 @@
 
 const LinkedList = require('./LinkedList.js');
 
-describe('Linked List Tests', () => {
+describe('LinkedList Tests', () => {
   let list = new LinkedList();
   it('Can successfully instantiate an empty linked list', () => {
     expect(list.head).toBeNull();
