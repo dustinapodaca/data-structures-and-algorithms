@@ -4,7 +4,7 @@
 
 ## Whiteboard Process
 
-![ArrayBinarySearch Whiteboard Img](./Screenshot%202022-11-29%20at%203.24.19%20PM.jpg)
+![ArrayBinarySearch Whiteboard Img](./Screenshot%202022-11-30%20at%203.49.49%20PM.png)
 
 ## Approach & Efficiency
 
