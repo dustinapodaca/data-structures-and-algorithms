@@ -120,6 +120,25 @@ class LinkedList {
     return string;
   }
 
+  kthFromEnd(k) {
+    let currentNode = this.head;
+    let size = 0;
+    // while loop to traverse the linked list and get the size
+    while (currentNode) {
+      size++;
+      currentNode = currentNode.next;
+    }
+    let result = size - k;
+    if (result < 1 || result > size) {
+      return 'Exception';
+    }
+    currentNode = this.head;
+    for (let i = 1; i < result; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.data;
+  }
+
   toArray() {
     // currentNode is the head of the list
     let currentNode = this.head;
@@ -153,13 +172,14 @@ list.insertAfter('c', 'z');
 let listIncludes = list.includes('b');
 let listToString = list.toString();
 let listToArray = list.toArray();
+let listKthFromEnd = list.kthFromEnd(2);
 console.log(list);
 console.log(list.size);
 console.log(listIncludes);
 console.log(listToString);
 console.log(listToArray);
+console.log('kthFromEnd:', listKthFromEnd);
 console.log(JSON.stringify(list));
-
 
 // stand-alone function to traverse the linked list
 const traverse = (list) => {

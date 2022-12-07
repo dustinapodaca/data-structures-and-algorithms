@@ -49,15 +49,32 @@ describe('LinkedList Tests', () => {
     expect(list.head.next.next.next.next.data).toEqual('x');
   });
   it('Can successfully insert a node before the first node of a linked list', () => {
-    list.insertBefore('a', 'y');
+    list.insert('y');
     expect(list.head.data).toEqual('y');
   });
   it('Can successfully insert after a node in the middle of the linked list', () => {
     list.insertAfter('x', 'z');
-    expect(list.head.next.next.next.next.next.data).toEqual('z');
+    expect(list.head.next.next.next.next.next.next.data).toEqual('z');
   });
   it('Can successfully insert a node after the last node of the linked list', () => {
-    list.insertAfter('u', 'w');
-    expect(list.head.next.next.next.next.next.next.data).toEqual('w');
+    list.append('w');
+    expect(list.head.next.next.next.next.next.next.next.next.data).toEqual('w');
+  });
+  test('Where k is greater than the length of the linked list', () => {
+    expect(list.kthFromEnd(10)).toEqual('Exception');
+  });
+  test('Where k and the length of the list are the same', () => {
+    expect(list.kthFromEnd(9)).toEqual('Exception');
+  });
+  test('Where k is not a positive integer', () => {
+    expect(list.kthFromEnd(-1)).toEqual('Exception');
+  });
+  test('Where the linked list is of a size 1', () => {
+    let newList = new LinkedList();
+    newList.insert('a');
+    expect(newList.kthFromEnd(0)).toEqual('a');
+  });
+  test('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+    expect(list.kthFromEnd(3)).toEqual('x');
   });
 });
