@@ -153,6 +153,23 @@ class LinkedList {
     // returning the string and array
     return arr;
   }
+
+  zipLists(list1, list2) {
+    let currentNode1 = list1.head;
+    let currentNode2 = list2.head;
+    let list3 = new LinkedList();
+    while (currentNode1 || currentNode2) {
+      if (currentNode1) {
+        list3.append(currentNode1.data);
+        currentNode1 = currentNode1.next;
+      }
+      if (currentNode2) {
+        list3.append(currentNode2.data);
+        currentNode2 = currentNode2.next;
+      }
+    }
+    return list3;
+  }
 }
 
 //instantiation of empty LinkedList
@@ -166,6 +183,15 @@ list.append('e');
 list.insert('f');
 list.insertBefore('a', 'x');
 list.insertAfter('c', 'z');
+let list1 = new LinkedList();
+list1.append('1');
+list1.append('2');
+list1.append('3');
+let list2 = new LinkedList();
+list2.append('a');
+list2.append('b');
+list2.append('c');
+console.log('zipList', list.zipLists(list1, list2).toString());
 // list.insertBefore('i', 'w');
 // list.insertAfter('j', 'z');
 // { f } -> { a } -> { b } -> { c } -> { d } -> { e } -> NULL
@@ -173,6 +199,7 @@ let listIncludes = list.includes('b');
 let listToString = list.toString();
 let listToArray = list.toArray();
 let listKthFromEnd = list.kthFromEnd(2);
+
 console.log(list);
 console.log(list.size);
 console.log(listIncludes);
