@@ -6,7 +6,15 @@
 
 ## Challenge
 
-* Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+* Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node. Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created. This object should be aware of a default empty value assigned to head when the linked list is instantiated. This value will be null for now.
+* Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+* Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+* Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as: "{ a } -> { b } -> { c } -> NULL"
+* Define a method called append which takes any value as an argument and adds a new node with that value to the end of the list.
+* Define a method called insertBefore which takes a value and a new value as arguments and adds a new node with the new value immediately before the first node that has the value specified.
+* Define a method called insertAfter which takes a value and a new value as arguments and adds a new node with the new value immediately after the first node that has the value specified.
+* Define a method called kthFromEnd which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
+* Define a method called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1).
 
 ## Approach & Efficiency
 
@@ -51,5 +59,7 @@
   * Returns an exception if the linked list is of a size 1
 * `zipLists()`
   * Arguments: two linked lists
-  * Returns: zipped linked list
-  * Takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+  * Returns: zipped linked list with nodes alternating between the two lists, formatted as:
+    * list1 = `"{ a } -> { b } -> { c } -> NULL"`
+    * list2 = `"{ d } -> { e } -> { f } -> NULL"`
+    * zipLists(list1, list2) = `"{ a } -> { d } -> { b } -> { e } -> { c } -> { f } -> NULL"`
