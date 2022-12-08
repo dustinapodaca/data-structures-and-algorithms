@@ -14,7 +14,7 @@
 
 ## API
 
-* `add()`
+* `append()`
   * Arguments: value
   * Returns: nothing
   * Adds a new node with that value to the end of the list.
@@ -30,3 +30,26 @@
   * Arguments: none
   * Returns: a string representing all the values in the Linked List, formatted as:
     * `"{ a } -> { b } -> { c } -> NULL"`
+* `toArray()`
+  * Arguments: none
+  * Returns: an array of all the values in the Linked List, formatted as:
+    * `[a, b, c]`
+* `insertBefore()`
+  * Arguments: value, new value
+  * Returns: nothing
+  * Adds a new node with the given new value immediately before the first node that has the value specified.
+* `insertAfter()`
+  * Arguments: value, new value
+  * Returns: nothing
+  * Adds a new node with the given new value immediately after the first node that has the value specified.
+* `kthFromEnd()`
+  * Arguments: k
+  * Returns: the value of the node k from the end of the linked list
+  * Returns an exception if k is greater than the length of the linked list
+  * Returns an exception if k and the length of the list are the same
+  * Returns an exception if k is not a positive integer
+  * Returns an exception if the linked list is of a size 1
+* `zipLists()`
+  * Arguments: two linked lists
+  * Returns: zipped linked list
+  * Takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
