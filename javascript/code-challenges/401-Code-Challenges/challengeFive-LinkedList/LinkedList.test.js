@@ -77,4 +77,16 @@ describe('LinkedList Tests', () => {
   test('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
     expect(list.kthFromEnd(3)).toEqual('x');
   });
+  //zip lists test
+  it('Can successfully zip two linked lists of the same length', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.insert(3);
+    list1.insert(2);
+    list1.insert(1);
+    list2.insert(6);
+    list2.insert(5);
+    list2.insert(4);
+    expect(list1.zipLists(list1, list2).toArray()).toEqual([1, 4, 2, 5, 3, 6]);
+  });
 });
