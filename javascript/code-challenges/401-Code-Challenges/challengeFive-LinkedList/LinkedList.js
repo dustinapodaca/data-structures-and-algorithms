@@ -191,32 +191,32 @@ let list2 = new LinkedList();
 list2.append('a');
 list2.append('b');
 list2.append('c');
-console.log('zipList', list.zipLists(list1, list2).toString());
+// console.log('zipList', list.zipLists(list1, list2).toString());
 // list.insertBefore('i', 'w');
 // list.insertAfter('j', 'z');
 // { f } -> { a } -> { b } -> { c } -> { d } -> { e } -> NULL
-let listIncludes = list.includes('b');
-let listToString = list.toString();
-let listToArray = list.toArray();
-let listKthFromEnd = list.kthFromEnd(2);
+// let listIncludes = list.includes('b');
+// let listToString = list.toString();
+// let listToArray = list.toArray();
+// let listKthFromEnd = list.kthFromEnd(2);
 
-console.log(list);
-console.log(list.size);
-console.log(listIncludes);
-console.log(listToString);
-console.log(listToArray);
-console.log('kthFromEnd:', listKthFromEnd);
-console.log(JSON.stringify(list));
+// console.log(list);
+// console.log(list.size);
+// console.log(listIncludes);
+// console.log(listToString);
+// console.log(listToArray);
+// console.log('kthFromEnd:', listKthFromEnd);
+// console.log(JSON.stringify(list));
 
 // stand-alone function to traverse the linked list
-const traverse = (list) => {
-  let current = list.head;
-  while (current) {
-    console.log(current.data);
-    current = current.next;
-  }
-};
+// const traverse = (list) => {
+//   let current = list.head;
+//   while (current) {
+//     console.log(current.data);
+//     current = current.next;
+//   }
+// };
 
-traverse(list);
+// traverse(list);
 
 module.exports = LinkedList;
