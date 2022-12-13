@@ -80,6 +80,41 @@ class Queue {
   }
 }
 
+class PseudoQueue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
+
+  enqueue(val) {
+    this.stack1.push(val);
+  }
+
+  dequeue() {
+    while (this.stack1.top) {
+      this.stack2.push(this.stack1.pop());
+    }
+    let temp = this.stack2.pop();
+    while (this.stack2.top) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return temp;
+  }
+}
+
+const pseudoQueue = new PseudoQueue();
+pseudoQueue.enqueue(20);
+pseudoQueue.enqueue(15);
+pseudoQueue.enqueue(10);
+console.log(JSON.stringify(pseudoQueue));
+console.log(pseudoQueue.dequeue());
+console.log(pseudoQueue.dequeue());
+console.log(JSON.stringify(pseudoQueue));
+console.log(pseudoQueue.dequeue());
+pseudoQueue.enqueue(5);
+console.log(pseudoQueue.dequeue());
+
+
 const stack = new Stack();
 stack.push(1);
 stack.push(2);
