@@ -1,7 +1,6 @@
 'use strict';
 
 // Node
-
 class Node {
   constructor(data) {
     this.data = data;
@@ -10,7 +9,6 @@ class Node {
 }
 
 // Stack Class
-
 class Stack {
   constructor() {
     this.top = null;
@@ -102,6 +100,45 @@ class PseudoQueue {
   }
 }
 
+class AnimalShelter {
+  constructor() {
+    this.dog = new Queue();
+    this.cat = new Queue();
+  }
+
+  enqueue(animal) {
+    if (animal.type === 'dog') {
+      this.dog.enqueue(animal);
+    } else if (animal.type === 'cat') {
+      this.cat.enqueue(animal);
+    }
+  }
+
+  dequeue(pref) {
+    if (pref === 'dog') {
+      return this.dog.dequeue();
+    } else if (pref === 'cat') {
+      return this.cat.dequeue();
+    } else {
+      return null;
+    }
+  }
+}
+
+const animalShelter = new AnimalShelter();
+animalShelter.enqueue({ type: 'dog', name: 'dog1' });
+animalShelter.enqueue({ type: 'dog', name: 'dog2' });
+animalShelter.enqueue({ type: 'dog', name: 'dog3' });
+animalShelter.enqueue({ type: 'cat', name: 'cat1' });
+animalShelter.enqueue({ type: 'cat', name: 'cat2' });
+animalShelter.enqueue({ type: 'cat', name: 'cat3' });
+console.log(animalShelter.dequeue('dog'));
+console.log(animalShelter.dequeue('cat'));
+console.log(animalShelter.dequeue('dog'));
+console.log(animalShelter.dequeue('cat'));
+console.log(animalShelter.dequeue('dog'));
+console.log(animalShelter.dequeue('cat'));
+
 const pseudoQueue = new PseudoQueue();
 pseudoQueue.enqueue(20);
 pseudoQueue.enqueue(15);
@@ -113,7 +150,6 @@ console.log(JSON.stringify(pseudoQueue));
 console.log(pseudoQueue.dequeue());
 pseudoQueue.enqueue(5);
 console.log(pseudoQueue.dequeue());
-
 
 const stack = new Stack();
 stack.push(1);
@@ -136,4 +172,3 @@ console.log(queue.peek());
 console.log(queue.dequeue());
 console.log(queue.peek());
 console.log(queue.isEmpty());
-
