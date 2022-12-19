@@ -46,6 +46,11 @@ class BinaryTree {
     traverse(this.root);
     return result;
   }
+
+  findMaximumValue() {
+    let maxVal = this.inOrder().pop();
+    return maxVal;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -56,7 +61,7 @@ class BinarySearchTree extends BinaryTree {
       return;
     }
     let current = this.root;
-    while (true) {
+    while (current) {
       if (value < current.value) {
         if (!current.left) {
           current.left = newNode;
@@ -89,6 +94,26 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 }
+
+const bst = new BinarySearchTree();
+
+bst.add(2);
+bst.add(8);
+bst.add(21);
+bst.add(23);
+bst.add(19);
+bst.add(7);
+bst.add(86);
+bst.add(45);
+bst.add(78);
+bst.add(91);
+
+console.log(bst);
+console.log(JSON.stringify(bst, null, 2));
+
+let maxValue = bst.findMaximumValue();
+console.log(maxValue);
+
 
 module.exports = BinarySearchTree;
 
