@@ -1,65 +1,41 @@
-# Singly Linked List
+# Binary Tree and BST Implementation
 
-* A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:
+- Binary Tree is defined as a tree data structure where each node has at most 2 children. Since each element in a binary tree can have only 2 children, we typically name them the left and right child.
 
-![Linked List](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist.png)
+![Binary Tree](https://media.geeksforgeeks.org/wp-content/uploads/binary_tree-1.png)
 
-## Challenge
+## Challenge and Features
 
-* Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node. Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created. This object should be aware of a default empty value assigned to head when the linked list is instantiated. This value will be null for now.
-* Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
-* Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
-* Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as: "{ a } -> { b } -> { c } -> NULL"
-* Define a method called append which takes any value as an argument and adds a new node with that value to the end of the list.
-* Define a method called insertBefore which takes a value and a new value as arguments and adds a new node with the new value immediately before the first node that has the value specified.
-* Define a method called insertAfter which takes a value and a new value as arguments and adds a new node with the new value immediately after the first node that has the value specified.
-* Define a method called kthFromEnd which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
-* Define a method called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1).
+- Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+- Create a Binary Tree class
+- Define a method for each of the depth first traversals:
+  - `preOrder()`
+  - `inOrder()`
+  - `postOrder()`
+  - `findMaxValue()`
+- Each depth first traversal method should return an array of values, ordered appropriately.
+- Create a Binary Search Tree class
+- This class should be a sub-class of the Binary Tree Class, with the following additional methods:
+  - `add()`
+    - Arguments: value
+    - Return: nothing
+    - Adds a new node with that value in the correct location in the binary search tree.
+  - `contains()`
+    - Argument: value
+    - Returns: boolean indicating whether or not the value is in the tree at least once.
 
-## Approach & Efficiency
+## Tests
 
-* For this challenge I took a TDD approach. I started by writing the tests for the LinkedList class and then wrote the code to pass the tests. The Big O space/time for this approach is O(1) for space and O(n) for time.
+- `npm test`
 
-## API
-
-* `append()`
-  * Arguments: value
-  * Returns: nothing
-  * Adds a new node with that value to the end of the list.
-* `insert()`
-  * Arguments: value
-  * Returns: nothing
-  * Adds a new node with that value to the head of the list with an O(1) Time performance.
-* `includes()`
-  * Arguments: value
-  * Returns: Boolean
-  * Indicates whether that value exists as a Node’s value somewhere within the list.
-* `toString()`
-  * Arguments: none
-  * Returns: a string representing all the values in the Linked List, formatted as:
-    * `"{ a } -> { b } -> { c } -> NULL"`
-* `toArray()`
-  * Arguments: none
-  * Returns: an array of all the values in the Linked List, formatted as:
-    * `[a, b, c]`
-* `insertBefore()`
-  * Arguments: value, new value
-  * Returns: nothing
-  * Adds a new node with the given new value immediately before the first node that has the value specified.
-* `insertAfter()`
-  * Arguments: value, new value
-  * Returns: nothing
-  * Adds a new node with the given new value immediately after the first node that has the value specified.
-* `kthFromEnd()`
-  * Arguments: k
-  * Returns: the value of the node k from the end of the linked list
-  * Returns an exception if k is greater than the length of the linked list
-  * Returns an exception if k and the length of the list are the same
-  * Returns an exception if k is not a positive integer
-  * Returns an exception if the linked list is of a size 1
-* `zipLists()`
-  * Arguments: two linked lists
-  * Returns: zipped linked list with nodes alternating between the two lists, formatted as:
-    * list1 = `"{ a } -> { b } -> { c } -> NULL"`
-    * list2 = `"{ d } -> { e } -> { f } -> NULL"`
-    * zipLists(list1, list2) = `"{ a } -> { d } -> { b } -> { e } -> { c } -> { f } -> NULL"`
+```bash
+✓ can successfully instantiate an empty tree (1 ms)
+✓ can successfully instantiate a tree with a single root node
+✓ can successfully add a left child and right child to a node (1 ms)
+✓ can successfully return a collection from a preorder traversal
+✓ can successfully return a collection from an inorder traversal
+✓ can successfully return a collection from a postorder traversal
+✓ returns true for the contains method with an existing node value
+✓ returns false for the contains method with a non-existing node value (1 ms)
+✓ can successfully find and return the maximum value
+```
