@@ -13,6 +13,7 @@
   - `inOrder()`
   - `postOrder()`
   - `findMaxValue()`
+  - `breadthFirst()`
 - Each depth first traversal method should return an array of values, ordered appropriately.
 - Create a Binary Search Tree class
 - This class should be a sub-class of the Binary Tree Class, with the following additional methods:
