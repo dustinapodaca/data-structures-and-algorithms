@@ -86,4 +86,14 @@ describe('Binary Search Tree', () => {
     bst.add(17);
     expect(bst.findMaximumValue()).toEqual(17);
   });
+  test('it can successfully process a breadth first traversal', () => {
+    bst.add(10);
+    bst.add(5);
+    bst.add(15);
+    bst.add(3);
+    bst.add(7);
+    bst.add(12);
+    bst.add(17);
+    expect(bst.breadthFirst()).toEqual([10, 5, 15, 3, 7, 12, 17]);
+  });
 });

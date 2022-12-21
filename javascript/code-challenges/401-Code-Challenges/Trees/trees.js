@@ -47,6 +47,25 @@ class BinaryTree {
     return result;
   }
 
+  // breadth first traversal
+  breadthFirst() {
+    const result = [];
+    const queue = [];
+    let current = this.root;
+    queue.push(current);
+    while (queue.length) {
+      current = queue.shift();
+      result.push(current.value);
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+    return result;
+  }
+
   findMaximumValue() {
     let maxVal = this.inOrder().pop();
     return maxVal;
@@ -110,6 +129,8 @@ bst.add(91);
 
 console.log(bst);
 console.log(JSON.stringify(bst, null, 2));
+
+console.log(bst.breadthFirst());
 
 let maxValue = bst.findMaximumValue();
 console.log(maxValue);
