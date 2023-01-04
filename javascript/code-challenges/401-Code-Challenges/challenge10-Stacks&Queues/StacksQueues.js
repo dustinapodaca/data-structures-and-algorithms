@@ -14,12 +14,14 @@ class Stack {
     this.top = null;
   }
 
+  // push is
   push(val) {
     let node = new Node(val);
     node.next = this.top;
     this.top = node;
   }
 
+  // pop is a
   pop() {
     let temp = this.top;
     this.top = this.top.next;

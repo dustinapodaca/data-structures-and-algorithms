@@ -1,3 +1,5 @@
+'use strict';
+
 let arr = [8, 4, 23, 42, 16, 15];
 
 const insertionSort = (arr) => {
