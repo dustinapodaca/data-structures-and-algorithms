@@ -135,6 +135,23 @@ console.log(bst.breadthFirst());
 let maxValue = bst.findMaximumValue();
 console.log(maxValue);
 
+// Find the Sum of all the odd numbers in a binary tree
+
+function sumOddNumbers(tree) {
+  let sum = 0;
+  let oddNumbers = tree.breadthFirst().filter((number) => number % 2 !== 0);
+  for (let i = 0; i < oddNumbers.length; i++) {
+    sum += oddNumbers[i];
+  }
+  return sum;
+}
+
+
+
+
+
 
 module.exports = BinarySearchTree;
+
+
 

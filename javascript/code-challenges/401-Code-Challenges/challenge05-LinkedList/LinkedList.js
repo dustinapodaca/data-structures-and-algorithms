@@ -209,14 +209,14 @@ list2.append('c');
 // console.log(JSON.stringify(list));
 
 // stand-alone function to traverse the linked list
-// const traverse = (list) => {
-//   let current = list.head;
-//   while (current) {
-//     console.log(current.data);
-//     current = current.next;
-//   }
-// };
+const traverse = (list) => {
+  let current = list.head;
+  while (current) {
+    console.log(current.data);
+    current = current.next;
+  }
+};
 
-// traverse(list);
+traverse(list);
 
 module.exports = LinkedList;
