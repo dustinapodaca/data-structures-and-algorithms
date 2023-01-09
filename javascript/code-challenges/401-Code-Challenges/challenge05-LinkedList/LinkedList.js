@@ -1,8 +1,8 @@
 'use strict';
 
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.value = value;
     this.next = null;
   }
 }
@@ -51,7 +51,7 @@ class LinkedList {
     let currentNode = this.head;
     // a while loop to traverse the linked list
     while (currentNode) {
-      if (currentNode.data === val) {
+      if (currentNode.value === val) {
         return true;
       }
       // changing the value of currentNode to the next node in the list
@@ -68,7 +68,7 @@ class LinkedList {
     let currentNode = this.head;
     // a while loop to traverse the linked list
     while (currentNode) {
-      if (currentNode.next.data === val) {
+      if (currentNode.next.value === val) {
         node.next = currentNode.next;
         currentNode.next = node;
         this.size++;
@@ -83,7 +83,7 @@ class LinkedList {
     let node = new Node(newVal);
     let currentNode = this.head;
     while (currentNode) {
-      if (currentNode.next.data === val) {
+      if (currentNode.next.value === val) {
         node.next = currentNode.next.next.next;
         currentNode.next.next = node;
         this.size++;
@@ -94,9 +94,9 @@ class LinkedList {
   }
 
   // while(currentNode) {
-  //   if (currentNode.next.data !== val) {
+  //   if (currentNode.next.value !== val) {
   //     return console.log(`Cannot insert ${newVal} after ${val}: Value ${val} not found: `);
-  //   } else if (currentNode.next.data === val) {
+  //   } else if (currentNode.next.value === val) {
   //     node.next = currentNode.next.next.next;
   //     currentNode.next.next = node;
   //     this.size++;
@@ -109,8 +109,8 @@ class LinkedList {
     let string = '';
     // a while loop to traverse the linked list
     while (currentNode) {
-      // adding the data of the node to the string
-      string += `{ ${currentNode.data} } -> `;
+      // adding the value of the node to the string
+      string += `{ ${currentNode.value} } -> `;
       // changing the value of currentNode to the next node in the list
       currentNode = currentNode.next;
     }
@@ -136,7 +136,7 @@ class LinkedList {
     for (let i = 1; i < result; i++) {
       currentNode = currentNode.next;
     }
-    return currentNode.data;
+    return currentNode.value;
   }
 
   toArray() {
@@ -145,8 +145,8 @@ class LinkedList {
     let arr = [];
     // a while loop to traverse the linked list
     while (currentNode) {
-      // adding the data of the node to the array
-      arr.push(currentNode.data);
+      // adding the value of the node to the array
+      arr.push(currentNode.value);
       // changing the value of currentNode to the next node in the list
       currentNode = currentNode.next;
     }
@@ -160,11 +160,11 @@ class LinkedList {
     let list3 = new LinkedList();
     while (currentNode1 || currentNode2) {
       if (currentNode1) {
-        list3.append(currentNode1.data);
+        list3.append(currentNode1.value);
         currentNode1 = currentNode1.next;
       }
       if (currentNode2) {
-        list3.append(currentNode2.data);
+        list3.append(currentNode2.value);
         currentNode2 = currentNode2.next;
       }
     }
@@ -174,7 +174,7 @@ class LinkedList {
 
 //instantiation of empty LinkedList
 let list = new LinkedList();
-// calling the insert method to add data to the head of the list
+// calling the insert method to add value to the head of the list
 list.insert('c');
 list.insert('b');
 list.insert('a');
@@ -212,7 +212,7 @@ list2.append('c');
 const traverse = (list) => {
   let current = list.head;
   while (current) {
-    console.log(current.data);
+    console.log(current.value);
     current = current.next;
   }
 };
