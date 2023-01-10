@@ -67,11 +67,26 @@ class HashTable {
   }
 }
 
+const repeatedWord = (str) => {
+  const hashTable = new HashTable(1024);
+  const words = str.split(' ');
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i].toLowerCase();
+    if (hashTable.has(word)) {
+      return word;
+    }
+    hashTable.set(word, word);
+  }
+  return null;
+};
+
+console.log(repeatedWord('It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York...'));
+
 module.exports = HashTable;
 
 
 
-//OR USING A MAP
+//OR USING A MAP - SEEMS WAY EASIER lol
 // class HashTable {
 //   constructor(size) {
 //     this.size = size;
