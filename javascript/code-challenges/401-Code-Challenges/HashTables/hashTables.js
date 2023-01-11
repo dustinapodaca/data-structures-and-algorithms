@@ -1,6 +1,7 @@
 'use strict';
 
 const { LinkedList } = require('../challenge05-LinkedList/LinkedList');
+const { bst, bst2 } = require('../Trees/trees');
 
 class HashTable {
   constructor(size) {
@@ -82,11 +83,51 @@ const repeatedWord = (str) => {
 
 console.log(repeatedWord('It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York...'));
 
+//tree-intersection
+const treeIntersection = (tree1, tree2) => {
+  const treeTable = new HashTable(1024);
+  let results = [];
+  let current1 = tree1.root;
+  let current2 = tree2.root;
+
+  if (!current1 || !current2) {
+    return results;
+  }
+
+  const traverse = node => {
+    treeTable.set(node.value, 1);
+
+    if (node.left) {
+      traverse(node.left);
+    }
+    if (node.right) {
+      traverse(node.right);
+    }
+  };
+  traverse(current1);
+
+  const traverse2 = node => {
+    if (treeTable.has(node.value)) {
+      results.push(node.value);
+    }
+    if (node.left) {
+      traverse2(node.left);
+    }
+    if (node.right) {
+      traverse2(node.right);
+    }
+  };
+  traverse2(current2);
+  return results;
+};
+
+console.log(treeIntersection(bst, bst2));
+
 module.exports = HashTable;
 
 
 
-//OR USING A MAP - SEEMS WAY EASIER lol
+// //OR USING A MAP - SEEMS WAY EASIER lol
 // class HashTable {
 //   constructor(size) {
 //     this.size = size;
