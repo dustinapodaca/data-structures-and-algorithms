@@ -115,6 +115,7 @@ class BinarySearchTree extends BinaryTree {
 }
 
 const bst = new BinarySearchTree();
+const bst2 = new BinarySearchTree();
 
 bst.add(2);
 bst.add(8);
@@ -126,6 +127,12 @@ bst.add(86);
 bst.add(45);
 bst.add(78);
 bst.add(91);
+
+bst2.add(7);
+bst2.add(86);
+bst2.add(45);
+bst2.add(78);
+bst2.add(91);
 
 console.log(bst);
 console.log(JSON.stringify(bst, null, 2));
@@ -148,10 +155,7 @@ function sumOddNumbers(tree) {
 
 
 
-
-
-
-module.exports = BinarySearchTree;
+module.exports = BinarySearchTree, bst, bst2;
 
 
 
