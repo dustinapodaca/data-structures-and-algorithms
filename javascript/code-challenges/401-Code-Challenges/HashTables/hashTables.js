@@ -123,40 +123,72 @@ const treeIntersection = (tree1, tree2) => {
 
 console.log(treeIntersection(bst, bst2));
 
-module.exports = HashTable;
 
+//OR USING A MAP - SEEMS WAY EASIER lol
+class HashTableMap {
+  constructor(size) {
+    this.size = size;
+    this.map = new Map();
+  }
 
+  hash(key) {
+    return key.split('').reduce((sum, char) => {
+      return sum + char.charCodeAt(0);
+    }, 0) * 599 % this.size;
+  }
 
-// //OR USING A MAP - SEEMS WAY EASIER lol
-// class HashTable {
-//   constructor(size) {
-//     this.size = size;
-//     this.map = new Map();
-//   }
+  set(key, value) {
+    const hash = this.hash(key);
+    this.map.set(hash, value);
+  }
 
-//   hash(key) {
-//     return key.split('').reduce((sum, char) => {
-//       return sum + char.charCodeAt(0);
-//     }, 0) * 599 % this.size;
-//   }
+  get(key) {
+    const hash = this.hash(key);
+    return this.map.get(hash) || null;
+  }
 
-//   set(key, value) {
-//     const hash = this.hash(key);
-//     this.map.set(hash, value);
-//   }
+  has(key) {
+    const hash = this.hash(key);
+    return this.map.has(hash);
+  }
 
-//   get(key) {
-//     const hash = this.hash(key);
-//     return this.map.get(hash) || null;
-//   }
+  keys() {
+    return Array.from(this.map.keys());
+  }
+}
 
-//   has(key) {
-//     const hash = this.hash(key);
-//     return this.map.has(hash);
-//   }
+const leftJoin = (hashTable1, hashTable2) => {
+  const leftTableKeys = hashTable1.keys();
+  const leftTable = hashTable1;
+  const rightTable = hashTable2;
+  let results = [];
+  // return arrays of keys for left and right
 
-//   keys() {
-//     return Array.from(this.map.keys());
-//   }
-// }
+  for (let i = 0; i < leftTableKeys.length; i++) {
+    let hasKey = rightTable.has(leftTableKeys[i]);
+    if (!hasKey) {
+      let leftValue = leftTable.get(leftTableKeys[i]);
+      results.push([leftTableKeys[i], leftValue, null]);
+    } else {
+      let leftValue = leftTable.get(leftTableKeys[i]);
+      let rightValue = rightTable.get(leftTableKeys[i]);
+      results.push([leftTableKeys[i], leftValue, rightValue]);
+    }
+  }
+  return results;
+};
 
+const synonyms = new HashTable();
+synonyms.set('happy', 'joyful');
+synonyms.set('sad', 'depressed');
+synonyms.set('excited', 'thrilled');
+
+const antonyms = new HashTable();
+antonyms.set('excited', 'calm');
+antonyms.set('happy', 'sad');
+antonyms.set('anxious', 'delighted');
+
+const result = leftJoin(synonyms, antonyms);
+console.log(result);
+
+module.exports = HashTable, HashTableMap;
