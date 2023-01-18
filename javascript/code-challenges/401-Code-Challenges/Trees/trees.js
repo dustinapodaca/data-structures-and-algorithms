@@ -114,6 +114,26 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
+// function to traverse a tree
+const traverse = (tree) => {
+  let current = tree.root;
+  let result = [];
+  let queue = [];
+  queue.push(current);
+  while (queue.length) {
+    current = queue.shift();
+    result.push(current.value);
+    if (current.left) {
+      queue.push(current.left);
+    }
+    if (current.right) {
+      queue.push(current.right);
+    }
+  }
+  return result;
+};
+
+
 const bst = new BinarySearchTree();
 const bst2 = new BinarySearchTree();
 
@@ -153,7 +173,19 @@ function sumOddNumbers(tree) {
   return sum;
 }
 
-
+const identicalTree = (bst1, bst2) => {
+  let tempValuesOne = bst1.inOrder();
+  let tempValuesTwo = bst2.inOrder();
+  if (tempValuesOne.length !== tempValuesTwo.length) {
+    return false;
+  }
+  for (let i = 0; i < tempValuesOne.length; i++) {
+    if (tempValuesOne[i] !== tempValuesTwo[i]) {
+      return false;
+    }
+  }
+  return true;
+};
 
 module.exports = BinarySearchTree, bst, bst2;
 

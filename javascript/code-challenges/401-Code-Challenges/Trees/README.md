@@ -6,6 +6,14 @@
 
 ## Challenge and Features
 
+### Challenge 37
+- Write a function to determine if two trees are identical or not.
+- Whiteboard:
+
+![Whiteboard](./assets/challenge37.png)
+
+---
+
 - Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
 - Create a Binary Tree class
 - Define a method for each of the depth first traversals:
