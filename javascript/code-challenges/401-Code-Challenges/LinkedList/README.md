@@ -4,6 +4,14 @@
 
 ![Linked List](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist.png)
 
+### Challenge 38
+
+* Given a singly linked list of N nodes, find the middle of the linked list. For example, if the linked list is `1-> 2->3->4->5`, then the middle node of the list is `3`.
+* If there are two middle nodes(in case, when N is even), print the second middle element.
+For example, if the linked list given is`1->2->3->4->5->6`, then the middle node of the list is `4`.
+
+![Whiteboard](./assets/challenge38.png)
+
 ## Challenge
 
 * Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node. Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created. This object should be aware of a default empty value assigned to head when the linked list is instantiated. This value will be null for now.

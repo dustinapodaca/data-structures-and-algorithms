@@ -219,4 +219,20 @@ const traverse = (list) => {
 
 traverse(list);
 
+const findMiddle = (head) => {
+  let tortoise = head;
+  let hare = head;
+
+  while (hare !== null && hare.next !== null) {
+    tortoise = tortoise.next;
+    hare = hare.next.next;
+  }
+  if (hare !== null) {
+    tortoise = tortoise.next;
+  }
+  return tortoise;
+};
+
+console.log(findMiddle(list.head));
+
 module.exports = LinkedList;
